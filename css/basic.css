@@ -1,0 +1,40 @@
+
+html, body, div, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td{
+	margin:0px;
+	padding:0px;
+}
+body{ font-family: '微软雅黑'; text-align:center;}
+em,i{ font-style:normal;}/*跟span一样了*/
+#wrap{ text-align:left;}
+html{font-size:20px;}
+
+ul{ list-style:none;}
+img{ border:0 none;}
+a{ text-decoration:none;}
+
+
+.fl{float:left; display:inline;}
+.fr{ float:right; display:inline;}
+.clear{ clear:both;}
+
+.clearfix{zoom:1;}	/*类似.pc_overflow*/
+.clearfix:before,.clearfix:after{display: table;line-height: 0;content:"";}
+.clearfix:after{clear:both;}
+
+
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+
+
+.disBlock{ display:block;}
+
+
+.ftw{font-weight:bold;}
+
+.borderNone{ border:0 none !important;}
+.backgroundNone{ background:none !important;}
+
+
+
+
