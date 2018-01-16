@@ -6,4 +6,4 @@
  * Time: 22:24
  */
 session_start();
-$conn = new mysqli('localhost', 'root', '', 'famox');
+$conn = new mysqli('localhost', 'root', '', 'dueape');
