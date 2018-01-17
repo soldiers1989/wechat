@@ -1,28 +1,54 @@
 <?php
 require_once 'Dbconn.php';
 require_once 'QQMailer.php';
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $email = $_GET['el'];
+    $password=$_GET['pd'];
+    $code = rand(10000, 99999);
+    $timeNow = time();
+    $sql = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
+    $conn->query($sql);
 
-$userEmail = $_GET['email'];
 // 实例化 QQMailer
-$mailer = new QQMailer(true);
+    $mailer = new QQMailer();
 // 添加附件
 //$mailer->addFile('20130VL.jpg');
 // 邮件标题
-$title = '验证码。';
+    $title = 'dueape验证码';
 // 邮件内容
-$content = "您验证码如下：".$testCode;
+    $content = "您此次请求的验证码为 ".$code." 请于5分钟内输入该验证码，否则该验证码将会失效！" ;
 // 发送QQ邮件
-$mailer->send($userEmail, $title, $content);
-
-$sqlMaxId = "select * from user order by user_id desc limit 1";
-$resultMaxId = $conn->query($sqlMaxId);
-$userid = 0;
-while ($rsMaxId = $resultMaxId->fetch_assoc()) {
-    $userid = $rsMaxId["user_id"];
+    $mailer->send($email, $title, $content);
 }
-$userid += 1;
-$sql = "insert into user (user_id,email,user_pass) VALUES ('$userid','$email','$password')";
-$result = $conn->query($sql);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $emalPost=$_POST['email'];
+    $codePost = $_POST['code'];
+    $passwordPost = $_POST['password'];
+    $sql = "select code from verification_code where email='$emalPost' ORDER BY id desc limit 1";
+    $query = $conn->query($sql);
+    $getcode = null;
+    while ($result = $query->fetch_assoc()) {
+        $getcode = $result["code"];
+    }
+    if($getcode==$codePost){
+        $sqlMaxId = "select * from user order by user_id desc limit 1";
+        $resultMaxId = $conn->query($sqlMaxId);
+        $userid = 0;
+        while ($rsMaxId = $resultMaxId->fetch_assoc()) {
+            $userid = $rsMaxId["user_id"];
+        }
+        $userid += 1;
+        $sql = "insert into user (user_id,email,user_pass) VALUES ('$userid','$emalPost','$passwordPost')";
+        $result = $conn->query($sql);
+        $_SESSION['uid']=$userid;
+        $_SESSION['uemail']=$emalPost;
+        header("Location: fabu1.php");
+    }else{
+        echo "<script>alert('验证码不正确!')</script>";
+        echo "<script> window.location.href = 'register.php' ;</script>";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,7 +77,9 @@ $result = $conn->query($sql);
                 <div class="time">60s</div>
             </div>
             <h3>你的邮箱有一封带验证码的邮件，请输入验证码</h3>
-
+            <input type="hidden" name="code" value="<?php echo $code ?>">
+            <input type="hidden" name="email" value="<?php echo $email ?>">
+            <input type="hidden" name="password" value="<?php echo $password ?>">
             <div class="submit"><input type="submit" value="确认"></div>
         </form>
     </div>

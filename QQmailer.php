@@ -1,7 +1,8 @@
 <?php
-require_once 'PHPMailer/class.phpmailer.php';
-require_once 'PHPMailer/class.smtp.php';
+use PHPMailer\PHPMailer\PHPMailer;
 
+require_once 'PHPMailer-master/src/PHPMailer.php';
+require_once 'PHPMailer-master/src/SMTP.php';
 class QQMailer
 {
     public static $HOST = 'smtp.qq.com'; // QQ 邮箱的服务器地址
@@ -10,7 +11,7 @@ class QQMailer
     public static $CHARSET = 'UTF-8'; // 设置发送的邮件的编码
 
     private static $USERNAME = '232870954@qq.com'; // 授权登录的账号
-    private static $PASSWORD = 'Dtmbqvdxtguwbgca'; // 授权登录的密码
+    private static $PASSWORD = 'dtmbqvdxtguwbgca'; // 授权登录的密码
     private static $NICKNAME = 'dueape'; // 发件人的昵称
 
     /**
