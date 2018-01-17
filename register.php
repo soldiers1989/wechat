@@ -13,15 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<script>alert('邮箱已注册!')</script>";
         echo "<script> window.location.href = 'register.php' ;</script>";
     }else{
-        $sqlMaxId="select * from user order by user_id desc limit 1";
-        $resultMaxId  = $conn->query($sqlMaxId);
-        $userid=0;
-        while ($rsMaxId = $resultMaxId->fetch_assoc()) {
-            $userid = $rsMaxId["user_id"];
-        }
-        $userid+=1;
-        $sql = "insert into user (user_id,email,user_pass) VALUES ('$userid','$email','$password')";
-        $result = $conn->query($sql);
+        header("Location: code.php?email=".$email);
     }
 }
 
