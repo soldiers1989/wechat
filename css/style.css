@@ -99,19 +99,15 @@ html[xmlns] .slides {display: block;}
 .share{width: 80%;padding:3% 0;background: #fff;border-radius: 5px;margin:45% auto 0;}
 .share p{padding:0 3%;font-size:14px;text-align: center;line-height: 24px;}
 .share span{display: block;margin-top: 3%;padding-top: 3%;text-align: center;border-top: 1px solid #ebebeb;font-size:14px;color:#fe3d30;}
-
-
-
-
-
-
-
-
-
 /*person end*/
 
 
 /*订单*/
+.ddul{ margin-top: 20px;}
+.ddred{color: #ff0000}
+.ddtitlewithright{width: 24.7%;float: left;text-align: center;border-right:1px solid #ccc;
+    border-bottom: 1px solid #ccc;margin-bottom: 10px;}
+.ddtitle{width: 24.7%;float: left;text-align: center; border-bottom: 1px solid #ccc}
 .bz3{width: 100%;border-top:15px solid #ededed;padding-top: 30%;}
 .bz3 .chakan{text-align: center;margin-top: 5%;}
 .bz3 .chakan a{font-size:0.7rem;color: #f04d30}
