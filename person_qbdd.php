@@ -1,5 +1,8 @@
 <?php
 include("Dbconn.php");
+$personon='on';
+$fabuon='';
+$indexon="";
 $_SESSION["uid"] = 'user@123.com';
 $_SESSION["user_name"] = 'user@123.com';
 if (!isset($_SESSION["uid"])) {
@@ -156,13 +159,7 @@ $uname = $_SESSION["user_name"];
     </div>
     <!-- footer star -->
     <div style="height: 62px;"></div>
-    <div class="footer">
-        <ul class="clearfix">
-            <li class="fl"><a href="">首页</a></li>
-            <li class="fl"><a href="">发布订单</a></li>
-            <li class="fl on"><a href="">我</a></li>
-        </ul>
-    </div>
+    <?php include("footer.php") ?>
     <!-- footer end -->
 </div>
 </body>

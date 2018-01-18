@@ -1,5 +1,8 @@
 <?php
 require_once 'Dbconn.php';
+$fabuon='on';
+$personon="";
+$indexon="";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $projectId = $_POST['project'];
     $title=$_POST['title'];
@@ -37,18 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="bz3">
             <div><img src="images/tjcg.jpg" width="100%"></div>
-            <div class="chakan"><a href="">查看已提交的订单>></a></div>
+            <div class="chakan"><a href="person_qbdd.php">查看已提交的订单>></a></div>
         </div>
     </div>
     <!-- footer star -->
     <div style="height: 62px;"></div>
-    <div class="footer">
-        <ul class="clearfix">
-            <li class="fl on"><a href="index.html">首页</a></li>
-            <li class="fl"><a href="">发布订单</a></li>
-            <li class="fl"><a href="person.html">我</a></li>
-        </ul>
-    </div>
+<?php include("footer.php") ?>
     <!-- footer end -->
 </div>
 </body>
