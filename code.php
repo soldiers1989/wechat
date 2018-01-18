@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $conn->query($sql);
 
 // 实例化 QQMailer
-    $mailer = new QQMailer();
+    $mailer = new QQMailer(true);
 // 添加附件
 //$mailer->addFile('20130VL.jpg');
 // 邮件标题
@@ -38,10 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userid = $rsMaxId["user_id"];
         }
         $userid += 1;
-        $sql = "insert into user (user_id,email,user_pass) VALUES ('$userid','$emalPost','$passwordPost')";
+        $sql = "insert into user (user_id,email,user_pass,user_name) VALUES ('$userid','$emalPost','$passwordPost','$passwordPost')";
         $result = $conn->query($sql);
         $_SESSION['uid']=$userid;
         $_SESSION['uemail']=$emalPost;
+        $_SESSION['user_name']=$emalPost;
         header("Location: fabu1.php");
     }else{
         echo "<script>alert('验证码不正确!')</script>";

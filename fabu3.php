@@ -7,7 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content=$_POST['content'];
     $qq=$_POST['qq'];
     $wechat=$_POST['weixin'];
-
+    $userid=$_SESSION["uid"];
+    $sql="insert into request_info (request_title,request_type,request_detail,request_qq,request_wechat)VALUES ('$title','$type','$content','$qq','$wechat')";
+    $query=$conn->query($sql);
 }
 ?>
 <!DOCTYPE html>

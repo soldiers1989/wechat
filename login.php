@@ -1,4 +1,25 @@
 <?php
+require_once 'Dbconn.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$name=$_POST['username'];
+	$password =md5($_POST['password']);
+	$sql = "select * from user where email='$name' AND user_pass=$password";
+	$query=$conn->query($sql);
+	$id=0;
+	while($rs=$query->fetch_assoc()){
+		$id=$rs['user_id'];
+	}
+	if(0<$id){
+		$_SESSION['uid']=$userid;
+		$_SESSION['uemail']=$emalPost;
+		$_SESSION['user_name']=$emalPost;
+		echo "<script> window.location.href = 'person.php' ;</script>";
+	}else{
+		echo "<script>alert('用户名或密码不正确!')</script>";
+		echo "<script> window.location.href = 'login.php' ;</script>";
+	}
+
+}
 ?>
 <!DOCTYPE html>
 <html>

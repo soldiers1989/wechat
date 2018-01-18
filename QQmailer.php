@@ -1,6 +1,5 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
-
 require_once 'PHPMailer-master/src/PHPMailer.php';
 require_once 'PHPMailer-master/src/SMTP.php';
 class QQMailer
@@ -13,7 +12,6 @@ class QQMailer
     private static $USERNAME = '232870954@qq.com'; // 授权登录的账号
     private static $PASSWORD = 'dtmbqvdxtguwbgca'; // 授权登录的密码
     private static $NICKNAME = 'dueape'; // 发件人的昵称
-
     /**
      * QQMailer constructor.
      * @param bool $debug [调试模式]

@@ -2,7 +2,6 @@
 require_once 'Dbconn.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $projectId = $_POST['radioProject'];
-
 }
 
 ?>

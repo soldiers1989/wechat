@@ -9,28 +9,73 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="app-mobile-web-app-capable" content="yes">
 	<meta name="app-itunes-app" content="app-id=599473996">
-	<title>首页</title>
+	<title>订单</title>
 	<link rel="stylesheet" type="text/css" href="css/basic.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script>
+		window.onload=function(){
+			var nodes =$("#titleId").children("div");
+			nodes[0].className+=" ddred";
+			$("#ddall").setAttribute("display","block");
+			for(var i=0;i<nodes.length;i++){
+				nodes[i].onclick= function () {
+					divClick(this);
+				}
+			}
+		};
+	</script>
+	<script>
+		function dispalyInit(){
+			var nodes =$("#titleId").children("ul");
+
+		}
+	</script>
+	<script>
+		function divClick(node){
+			var nodes =$("#titleId").children("div");
+			var nodesUl =$("#titleId").children("ul");
+			for(var i=0;i<nodes.length;i++){
+				var n = nodes[i];
+				n.className="ddtitlewithright";
+				if(3==i){
+					n.className="ddtitle";
+				}
+				nodesUl[i].removeAttribute("display")
+			}
+			node.className +=" ddred";
+			console.log(node.innerHTML);
+		}
+	</script>
+	<script>
+		function changeContent(node){
+
+		}
+	</script>
 </head>
 <body>
 <div id="wrap">
-	<div class="qbdd">
-	<h3>全部订单</h3>
-		<ul>
+	<div class="qbdd" id="titleId">
+		<div class="title ddtitlewithright" >全部</div><div class="title ddtitlewithright" onclick="divClick(this)">待报价</div><div class="title ddtitlewithright">待支付</div><div class="title ddtitle">已完成</div>
+		<ul id="ddall">
 			<li class="clearfix">
 				<h5 class="fl">课业辅导（51DUE）</h5>
 				<span class="fr">【待报价】</span>
 			</li>
+		</ul>
+		<ul id="dddai">
 			<li class="clearfix">
 				<h5 class="fl">课业辅导（51DUE）</h5>
 				<span class="fr">【待报价】</span>
 			</li>
+		</ul>
+		<ul id="ddpay">
 			<li class="clearfix">
 				<h5 class="fl">课业辅导（51DUE）</h5>
 				<span class="fr">【待报价】</span>
 			</li>
+		</ul>
+		<ul id="ddover">
 			<li class="clearfix">
 				<h5 class="fl">课业辅导（51DUE）</h5>
 				<span class="fr">【待报价】</span>
