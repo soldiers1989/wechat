@@ -28,8 +28,8 @@ require_once 'Dbconn.php';
 				<span class="fr"><img src="images/jt.jpg"></span>
 			</a>
 		</div>
-		<!-- <div class="person_c clearfix">
-			<a href="" class="fl">
+		<div class="person_c clearfix">
+			<a href="money.php" class="fl">
 				<span>0</span>
 				<em>钱包余额</em>
 			</a>
@@ -37,17 +37,23 @@ require_once 'Dbconn.php';
 				<span>0</span>
 				<em>交易记录</em>
 			</a>
-		</div> -->
+		</div>
 		<div class="person_b">
 			<ul>
 				<li class="clearfix">
-					<a href="person_qbdd.html"></a>
+					<a href="person_qbdd.php">
 						<h3 class="fl">我的订单</h3>
 						<span class="fr"><img src="images/jt.jpg"></span>
 					</a>
 				</li>
 				<li class="clearfix">
-					<a href="person_xg"></a>
+					<a href="person_xg">
+					<h3 class="fl">支付密码设置</h3>
+					<span class="fr"><img src="images/jt.jpg"></span>
+					</a>
+				</li>
+				<li class="clearfix">
+					<a href="person_xg">
 						<h3 class="fl">修改登录密码</h3>
 						<span class="fr"><img src="images/jt.jpg"></span>
 					</a>

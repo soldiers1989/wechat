@@ -3,8 +3,7 @@ include("Dbconn.php");
 $personon='on';
 $fabuon='';
 $indexon="";
-$_SESSION["uid"] = 'user@123.com';
-$_SESSION["user_name"] = 'user@123.com';
+
 if (!isset($_SESSION["uid"])) {
     header("Location:login.php");
 }
