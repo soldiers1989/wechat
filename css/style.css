@@ -13,7 +13,7 @@ html[xmlns] .slides {display: block;}
 .flex-viewport {-webkit-transition: all 1s ease;-moz-transition: all 1s ease;transition: all 1s ease;}
 .flexslider .slides {zoom: 1;}
 .flex-direction-nav {*height: 0;}
-.flexslider .flex-direction-nav a {width: 60px;height: 90px;margin: -60px 0 0;display: block;background: url(../images/ad_ctr.png) no-repeat 0 0;position: absolute;top: 50%;z-index: 10;cursor: pointer;text-indent: -9999px;opacity: 0;filter:alpha(opacity=0);-webkit-transition: all .3s ease;}
+.flexslider .flex-direction-nav a {width: 60px;height: 90px;margin: -60px 0 0;display: block;position: absolute;top: 50%;z-index: 10;cursor: pointer;text-indent: -9999px;opacity: 0;filter:alpha(opacity=0);-webkit-transition: all .3s ease;}
 .flexslider .flex-direction-nav .flex-next {background-position: 0 -90px;right: 0;}
 .flexslider .flex-direction-nav .flex-prev {left: 0;}
 .flexslider:hover .flex-next {opacity: 0.8;filter:alpha(opacity=25);}
@@ -115,7 +115,7 @@ html[xmlns] .slides {display: block;}
 .bz2{width: 94%;padding:3%;border-top: 15px solid #ededed;}
 .bz2 .input{margin-bottom: 4%;}
 .bz2 .input p{font-size:0.8rem;}
-.bz2 .input input,.bz2 .input select,.bz2 .input textarea{display: block;width: 94%;border:none;back/、ground: #ededed;border-radius: 5px;height: 36px;margin-top: 2%;padding:0 3%;}
+.bz2 .input input,.bz2 .input select,.bz2 .input textarea{display: block;width: 94%;border:none;back、ground: #ededed;border-radius: 5px;height: 36px;margin-top: 2%;padding:0 3%;}
 .bz2 .input select{width: 100%;}
 .bz2 .input textarea{padding:3%;height: 60px;}
 .bz2 .input em{font-size:0.8rem;color:#ff0000;line-height: 6px;display: block;}
