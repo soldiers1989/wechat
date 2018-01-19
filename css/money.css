@@ -1,0 +1,43 @@
+body,a{color:#000;}
+a,input,textarea{outline: none;}
+input[type=submit]{border-radius:0px;-webkit-appearance:none;background:-webkit-linear-gradient(#f268ee);background:-o-linear-gradient(#f268ee,#f268ee);background:-moz-linear-gradient(#f268ee,#f268ee);background:linear-aradient(#f268ee,#f268ee);}
+
+/*交易*/
+.money_top{padding:5% 0;width: 100%;background: #ee5151;}
+.money_top .jilu{text-align: right;width: 94%;margin:0 auto;}
+.money_top .jilu a{font-size:0.6rem;color:#000;display: inline-block;background: url(../images/jilu.png) no-repeat center left;padding-left: 20px;background-size: 20px;}
+.money_top .money_top1{margin-top: 8%;text-align: center;}
+.money_top .money_top1 h3{font-size:1.4rem;}
+.money_top .money_top1 span{font-size: 0.7rem;}
+.money_b{width: 100%;text-align: center;position: fixed;padding:5% 0;left: 0;bottom: 0;z-index: 2;}
+.money_b span{font-size:0.7rem;color:red;display: block;}
+.money_b a,.money_b input{display: block;width: 80%;padding:2% 0;text-align: center;font-size:0.8rem;background: #ee5151;border-radius: 20px;margin: 2% auto 0;border:none;}
+.zc_pay_1{font-size:0.8rem;padding:3% 5%;border-top: 1px solid #ededed;border-bottom: 1px solid #ededed;background: #fff;margin-top: 3%;}
+.zc_pay_1 input{margin-left: 5%;border:none;font-size:0.7rem;outline: none;}
+.zc_pay_4{padding:3% 5%;background: #fff;border-top: 1px solid #ededed;border-bottom: 1px solid #ededed;margin-top: 2%;position: relative;} 
+.zc_pay_4 .pay_son{position: absolute;width: 100%;left: 0;top: 50%;margin-top: -15px;}
+.zc_pay_4 h3{font-size:0.8rem;font-weight: normal;line-height: 30px;background:url(../images/wxzf.png) no-repeat center left;background-size: 30px;padding-left:40px;}
+.zc_pay_4 h3.h3_2{background-image: url(../images/ylkzf.png);}
+	input[type="radio"] {margin: 3px 3px 0px 5px;display: none;}
+.zc_pay_4 label {/*padding-left: 20px;*/cursor: pointer;background: url(../images/bg.png) no-repeat 95% top;background-size: 25px;display: block;width: 100%;height: 30px;}
+.zc_pay_4 label.checked {background-position: 95% bottom;}
+.zc_pay_dw{position: fixed;left: 0;bottom: 0;z-index: 1;width: 90%;padding:10px 5%;background: #fff;border-top: 1px solid #ededed;}
+.zc_pay_dw h3{font-size:0.8rem;line-height: 42px;}
+.zc_pay_dw .pay_submit{width:40%;}
+.zc_pay_dw .pay_submit input{width: 100%;border-radius: 20px;border:none;background:#ee5151;color:#fff;font-size:0.8rem;height: 36px;}
+
+.mima_t span{display: block;width: 90%;margin:15% auto 3%;font-size:0.8rem;}
+.mima .box{width: 90%;margin: 1% auto 0;}
+.mima .box input.paw{width:100%;height: 36px;line-height: 36px;border:1px solid #ccc;text-align: center;box-sizing: border-box;}
+.mima .box  input.paw:nth-child(1){margin-left: 0;}
+.mima .box input.paw:focus{outline:0;}
+.mima .box .pawDiv{display: inline-block;width: 14%;float: left;margin-right:3.2%;}
+.mima .box .pawDiv:nth-child(6){margin-right:0;}
+
+.jiaoyi{width: 100%;}
+.jiaoyi_top{width: 100%;background: #fff;border-bottom: 1px solid #ccc;}
+.jiaoyi_top a{display: block;width: 50%;padding:2% 0;text-align: center;font-size:0.7rem;float: left;}
+.jiaoyi_top a.on{background: #ee5151;}
+.jiaoyi ul li{padding:3%;width: 94%;border-bottom: 1px solid #ccc;}
+.jiaoyi ul li h3{font-size:0.8rem;font-weight: normal;}
+.jiaoyi ul li span{display: block;font-size:0.6rem;color:#666;}

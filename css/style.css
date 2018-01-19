@@ -79,6 +79,7 @@ html[xmlns] .slides {display: block;}
 .person_b ul li h3{background: url(../images/dindan.png) no-repeat center left;background-size: 22px;padding-left: 25px;font-size:18px;font-weight: normal;}
 .person_b ul li img{height: 22px;}
 .person_b ul li:nth-child(2) h3{background-image: url(../images/pass.png);}
+.person_b ul li:nth-child(3) h3{background-image: url(../images/pass.png);}
 .person_b .exit{width: 100%;margin:10% 0 3%;}
 .person_b .exit a{display: block;width: 40%;padding:2% 0;margin:0 auto;background: #fe3d30;border-radius: 20px;font-size:18px;text-align: center;}
 .wszl span{font-size:16px;width: 26%;display: block;height: 42px;line-height: 42px;}
@@ -114,7 +115,7 @@ html[xmlns] .slides {display: block;}
 .bz2{width: 94%;padding:3%;border-top: 15px solid #ededed;}
 .bz2 .input{margin-bottom: 4%;}
 .bz2 .input p{font-size:0.8rem;}
-.bz2 .input input,.bz2 .input select,.bz2 .input textarea{display: block;width: 94%;border:none;background: #ededed;border-radius: 5px;height: 36px;margin-top: 2%;padding:0 3%;}
+.bz2 .input input,.bz2 .input select,.bz2 .input textarea{display: block;width: 94%;border:none;back/、ground: #ededed;border-radius: 5px;height: 36px;margin-top: 2%;padding:0 3%;}
 .bz2 .input select{width: 100%;}
 .bz2 .input textarea{padding:3%;height: 60px;}
 .bz2 .input em{font-size:0.8rem;color:#ff0000;line-height: 6px;display: block;}
