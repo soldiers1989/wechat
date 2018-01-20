@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,32 +32,47 @@
 </head>
 <body>
 <div id="wrap">
-	<div class="display_content">
-		这里是详情页
-	</div>
-	<div class="display_l">
-		<a href="tel:">咨询</a>
-		<a href="tel:" class="a_1">分享</a>
-	</div>
-	<div class="display_b">
-		<a href="">发布订单</a>
-	</div>
-	<div class="share_bg">
-		<div class="share">
-			<p>请点击微信右上角<br>然后选择发送给朋友或者分享到朋友圈</p>
-			<span class="cha">确定</span>
+	<!-- banner star -->
+	<div class="banner">
+		<div class="pro-switch">
+			<div class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="img"><img src="images/banner.jpg" /></div>
+						</li>
+						<li>
+							<div class="img"><img src="images/banner.jpg" /></div>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
+	<!-- banner end -->
+
+	<!-- 服务项目 star-->
+	<div class="fwxm">
+		<h3>服务项目</h3>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+		<a href="display.html"><img src="images/banner.jpg" width="100%"></a>
+	</div>
+	<!-- 服务项目 end -->
+
+	<!-- footer star -->
+	<div style="height: 62px;"></div>
+	<div class="footer">
+		<ul class="clearfix">
+			<li class="fl on"><a href="index.html">首页</a></li>
+			<li class="fl"><a href="">发布订单</a></li>
+			<li class="fl"><a href="person.html">我</a></li>
+		</ul>
+	</div>
+	<!-- footer end -->
 </div>
-<script type="text/javascript">
-$(function(){
-	$(".display_l .a_1").click(function(){
-		$(".share_bg").show();
-	});
-	$(".cha").click(function(){
-		$(".share_bg").hide();
-	})
-})
-</script>
 </body>
 </html>

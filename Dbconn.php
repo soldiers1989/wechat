@@ -7,6 +7,6 @@
  */
 session_start();
 $conn = new mysqli('localhost', 'root', '', 'dueape');
-$_SESSION["uid"] = 'user@123.com';
+$_SESSION["uid"] = '10000';
 $_SESSION["user_name"] = 'user@123.com';
 $_SESSION["uemail"] = 'user@123.com';
