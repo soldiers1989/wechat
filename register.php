@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<script>alert('邮箱已注册!')</script>";
         echo "<script> window.location.href = 'register.php' ;</script>";
     }else{
-        header("Location: code.php?el=".$email."&pd=".$password);
+        header("Location: code.php?el=".$email."&pd=".$password."&act=regist");
     }
 }
 

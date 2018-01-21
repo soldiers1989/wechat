@@ -1,7 +1,10 @@
 <?php
 require_once 'Dbconn.php';
 require_once 'QQMailer.php';
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+$code=null;
+$email=null;
+$password=null;
+if ($_SERVER['REQUEST_METHOD'] == 'GET'&&isset($_GET['act'])&&$_GET['act']=='regist') {
     $email = $_GET['el'];
     $password=$_GET['pd'];
     $code = rand(10000, 99999);
@@ -66,15 +69,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/leftTime.min.js"></script>
 
+
+    <script type="text/javascript">
+        $(function(){
+            //60秒倒计时
+            $("#dateBtn1").on("click",function(){
+                console.log('in click');
+                var _this=$(this);
+                if(!$(this).hasClass("oncode")){
+                    $.leftTime(60,function(d){
+                        if(d.status){
+                            _this.addClass("oncode");
+                            _this.html((d.s=="00"?"60":d.s)+"秒后重新获取");
+                        }else{
+                            _this.removeClass("oncode");
+                            _this.html("获取验证码");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div id="wrap">
     <div class="reg">
         <form action="" method="post">
-            <div class="input code"><input type="text" name="username" placeholder="请输入验证码">
+            <div class="input code"><input type="text" name="username" placeholder="请输入验证码                   ">
 
-                <div class="time">60s</div>
+                <div class="time" id="dateBtn1" >获取验证码</div>
             </div>
             <h3>你的邮箱有一封带验证码的邮件，请输入验证码</h3>
             <input type="hidden" name="code" value="<?php echo $code ?>">
