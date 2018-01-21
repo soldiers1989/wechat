@@ -58,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="input introduce">
                     <em>*</em>
                     <input type="text" name="weixin" placeholder="输入您的微信">
-                    <span class="introduce">详细资料以及要求可发送邮件到daixiechengxu@163.com</span><br>
-                    <span class="introduce">平台将安排工程师代表与您沟通</span>
+                    <span class="introduce">详细资料以及要求可发送邮件到dueape@163.com</span><br>
+                    <span class="introduce">或加客服微信：DueApe_service</span>
                 </div>
                 <input type="hidden" name="project" value="<?php echo $projectId ?>">
 

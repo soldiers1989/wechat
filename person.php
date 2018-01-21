@@ -1,5 +1,5 @@
 <?php
-require_once 'Dbconn.php';
+include('Dbconn.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@ require_once 'Dbconn.php';
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="app-mobile-web-app-capable" content="yes">
 	<meta name="app-itunes-app" content="app-id=599473996">
-	<title>首页</title>
+	<title>个人中心</title>
 	<link rel="stylesheet" type="text/css" href="css/basic.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
@@ -22,7 +22,7 @@ require_once 'Dbconn.php';
 <div id="wrap">
 	<div class="person">
 		<div class="person_t clearfix">
-			<a href="person_zl.html">
+			<a href="person_zl.php">
 				<div class="img fl"><img src="images/pic1.jpg"></div>
 				<h3 class="fl">头像</h3>
 				<span class="fr"><img src="images/jt.jpg"></span>
@@ -47,13 +47,13 @@ require_once 'Dbconn.php';
 					</a>
 				</li>
 				<li class="clearfix">
-					<a href="person_xg">
+					<a href="mima.php">
 					<h3 class="fl">支付密码设置</h3>
 					<span class="fr"><img src="images/jt.jpg"></span>
 					</a>
 				</li>
 				<li class="clearfix">
-					<a href="person_xg">
+					<a href="person_xg.php">
 						<h3 class="fl">修改登录密码</h3>
 						<span class="fr"><img src="images/jt.jpg"></span>
 					</a>
@@ -66,13 +66,7 @@ require_once 'Dbconn.php';
 	</div>
 	<!-- footer star -->
 	<div style="height: 62px;"></div>
-	<div class="footer">
-		<ul class="clearfix">
-			<li class="fl"><a href="index.html">首页</a></li>
-			<li class="fl"><a href="">发布订单</a></li>
-			<li class="fl on"><a href="person.html">我</a></li>
-		</ul>
-	</div>
+	<?php include("footer.php") ?>
 	<!-- footer end -->
 </div>
 </body>

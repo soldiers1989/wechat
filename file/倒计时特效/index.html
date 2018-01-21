@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery设置时分秒倒计时代码 - 站长素材</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/leftTime.min.js"></script>
+
+<style type="text/css">
+	.testBtn-a{display: inline-block;height:30px;line-height:30px;padding:0 10px; border:0; border-radius:5px;color:#fff;background:rgb(65,133,244);cursor: pointer;}
+	.testBtn-a.oncode{background:#c9c9c9;color:#666;cursor: default;}
+</style>
+
+</head>
+<body>
+
+		
+		<div class="colspan-a"><button type="button" class="testBtn-a" id="dateBtn1">获取验证码</button></div>
+				
+		<script type="text/javascript">
+			$(function(){
+				//60秒倒计时
+				$("#dateBtn1").on("click",function(){
+					var _this=$(this);
+					if(!$(this).hasClass("on")){
+						$.leftTime(60,function(d){
+							if(d.status){
+								_this.addClass("on");
+								_this.html((d.s=="00"?"60":d.s)+"秒后重新获取");
+							}else{
+								_this.removeClass("on");
+								_this.html("获取验证码");
+							}
+						});
+					}
+				});
+			});
+		</script>	
+
+</body>
+</html>

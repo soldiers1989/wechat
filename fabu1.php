@@ -49,9 +49,9 @@
 						<img src="images/shu.jpg" width="100%">
 					</div>
 					<div class="content fl">
-						<h3>51due</h3>
+						<h3>DueApe作业帮</h3>
 						<div class="content_son">
-							51Due是一家以海外中国留学生创业团队为主导，总部设在美国纽约的留学教育咨询机构，同时也是海外拥有强大综合教员实力的论文代写机构。
+							DueApe成立于2011年，是第一家提供留学生CS相关课业辅导的团队。团队成员拥有硕士以上学历。良好的口碑为DueApe奠定了行业领导地位。
 						</div>
 					</div>
 					<input type="radio" name="radioProject" value="1">
@@ -61,9 +61,9 @@
 						<img src="images/mao.jpg" width="100%">
 					</div>
 					<div class="content fl">
-						<h3>51due</h3>
+						<h3>DueApe辅导部</h3>
 						<div class="content_son">
-							51Due是一家以海外中国留学生创业团队为主导，总部设在美国纽约的留学教育咨询机构，同时也是海外拥有强大综合教员实力的论文代写机构。
+							考试复习，知识点详解，国际计算机竞赛辅导，BBS论坛答疑相关问题…… 请联系客服微信DueApe_service
 						</div>
 					</div>
 					<input type="radio" name="radioProject" value="2">
@@ -77,13 +77,7 @@
 	
 	<!-- footer star -->
 	<div style="height: 62px;"></div>
-	<div class="footer">
-		<ul class="clearfix">
-			<li class="fl on"><a href="index.html">首页</a></li>
-			<li class="fl"><a href="">发布订单</a></li>
-			<li class="fl"><a href="person.html">我</a></li>
-		</ul>
-	</div>
+	<?php include("footer.php") ?>
 	<!-- footer end -->
 </div>
 

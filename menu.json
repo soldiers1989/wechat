@@ -1,0 +1,18 @@
+{
+  "button":[
+    {
+      "type":"click",
+      "name":"服务",
+      "key":"V1001_TODAY_MUSIC"
+    },
+    {
+      "type":"view",
+      "name":"发布订单",
+      "url":"https://www.dueape.com/wechat/fabu1.php"
+    },
+    {
+      "type":"view",
+      "name":"个人中心",
+      "url":"https://www.dueape.com/wechat/person.php"
+    }]
+}

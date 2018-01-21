@@ -60,7 +60,7 @@ $sqlTrading = "select * from tradingRecord where user_id = '$uid'";
 			$queryTrading = $conn->query($sqlTrading);
 			while($rsTrading = $queryTrading->fetch_assoc()){ ?>
 				<li class="clearfix">
-					<h3 class="fl">交易名称<?php echo $rsTrading['projectName'] ?></h3>
+					<h3 class="fl">交易名称<?php echo $rsTrading['project_name'] ?></h3>
 					<span class="fr"><?php echo date('Y-m-d',$rsTrading['creat_time']) ?></span>
 				</li>
 			<?php } ?>

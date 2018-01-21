@@ -59,7 +59,8 @@ html[xmlns] .slides {display: block;}
 .code{position: relative;}
 .code input{background-image: url(../images/yanzhen.jpg) !important;}
 .reg h3{width: 85%;margin:2% auto;font-size:16px;color:#333;text-align: center;}
-.time{position: absolute;right: 0;top: 0;width: 60px;background: #fe3d30;height: 42px;font-size:16px;color:#fff;text-align: center;line-height: 42px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+.time{position: absolute;right: 0;top: 0;width: 120px;background: #fe3d30;height: 42px;font-size:16px;color:#fff;text-align: center;line-height: 42px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;}
+.oncode{background:#c9c9c9;color:#666;cursor: default;}
 /*register end*/
 
 /*person star*/
