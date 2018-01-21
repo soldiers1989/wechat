@@ -1,5 +1,8 @@
 <?php
 include('Dbconn.php');
+if (!isset($_SESSION["uid"])) {
+	header("Location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
