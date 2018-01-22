@@ -71,13 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <!-- footer star -->
     <div style="height: 62px;"></div>
-    <div class="footer">
-        <ul class="clearfix">
-            <li class="fl on"><a href="index.html">首页</a></li>
-            <li class="fl"><a href="">发布订单</a></li>
-            <li class="fl"><a href="person.html">我</a></li>
-        </ul>
-    </div>
+    <?php include("footer.php") ?>
     <!-- footer end -->
 </div>
 </body>

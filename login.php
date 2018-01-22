@@ -1,15 +1,18 @@
 <?php
 require_once 'Dbconn.php';
+$userid=0;
+$emalPost=0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$name=$_POST['username'];
 	$password =md5($_POST['password']);
 	$sql = "select * from user where email='$name' AND user_pass=$password";
 	$query=$conn->query($sql);
 	$id=0;
+	$emalPost=$name;
 	while($rs=$query->fetch_assoc()){
-		$id=$rs['user_id'];
+		$userid=$rs['user_id'];
 	}
-	if(0<$id){
+	if(0<$userid){
 		$_SESSION['uid']=$userid;
 		$_SESSION['uemail']=$emalPost;
 		$_SESSION['user_name']=$emalPost;

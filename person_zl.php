@@ -1,6 +1,9 @@
 <?php
 include("Dbconn.php");
 $uname = $_SESSION['user_name'];
+if (!isset($_SESSION["uid"])) {
+    header("Location:login.php");
+}
 $sql = "select * from user where user_name = '$uname' ";
 $query = $conn->query($sql);
 while ($rs = $query->fetch_assoc()) {

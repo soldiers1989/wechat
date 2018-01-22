@@ -3,6 +3,19 @@ include('Dbconn.php');
 if (!isset($_SESSION["uid"])) {
 	header("Location:login.php");
 }
+$uemail = $_SESSION['uemail'];
+$uname = $_SESSION['user_name'];
+$money =0;
+$payNum = 0;
+$sql="select * from user WHERE email='$uemail'";
+$query=$conn->query($sql);
+while($rs=$query->fetch_assoc()){
+	$money = $rs['point'];
+}
+$sql="select * from tradingrecord WHERE user_name='$uname'";
+$query=$conn->query($sql);
+$payNum = $query->num_rows();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,11 +46,11 @@ if (!isset($_SESSION["uid"])) {
 		</div>
 		<div class="person_c clearfix">
 			<a href="money.php" class="fl">
-				<span>0</span>
+				<span><?php echo $money?></span>
 				<em>钱包余额</em>
 			</a>
 			<a href="" class="fl">
-				<span>0</span>
+				<span><?php echo $payNum?></span>
 				<em>交易记录</em>
 			</a>
 		</div>
@@ -63,7 +76,7 @@ if (!isset($_SESSION["uid"])) {
 				</li>
 			</ul>
 			<div class="exit">
-				<a href="">退出登录</a>
+				<a href="loginOut.php">退出登录</a>
 			</div>
 		</div>
 	</div>

@@ -38,7 +38,7 @@ while($rs=$query->fetch_assoc()){
 		</div>
 	</div>
 	<div class="money_b">
-		<span>一积分 = 一美元</span>
+		<span>1积分 = 1元（人民币）</span>
 		<a href="zhifu.php">充值</a>
 	</div>
 </div>

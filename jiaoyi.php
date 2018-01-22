@@ -1,5 +1,8 @@
 <?php
 require_once 'Dbconn.php';
+if (!isset($_SESSION["uid"])) {
+	header("Location:login.php");
+}
 $uid = $_SESSION["uid"];
 $sqlPoint = "select * from pointChangeRecord where user_id = '$uid'";
 $sqlTrading = "select * from tradingRecord where user_id = '$uid'";

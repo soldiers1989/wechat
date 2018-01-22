@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userid = $rsMaxId["user_id"];
         }
         $userid += 1;
-        $sql = "insert into user (user_id,email,user_pass,user_name) VALUES ('$userid','$emalPost','$passwordPost','$passwordPost')";
+        $sql = "insert into user (user_id,email,user_pass,user_name) VALUES ('$userid','$emalPost','$passwordPost','$emalPost')";
         $result = $conn->query($sql);
         $_SESSION['uid']=$userid;
         $_SESSION['uemail']=$emalPost;

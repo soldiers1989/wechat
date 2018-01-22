@@ -1,5 +1,8 @@
 <?php
 require_once 'Dbconn.php';
+if (!isset($_SESSION["uid"])) {
+    header("Location:login.php");
+}
 $uname =$_SESSION["uemail"];
 $pay_pass=null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

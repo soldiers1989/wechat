@@ -1,5 +1,9 @@
 <?php
-require_once('/path/to/pingpp-php/init.php');
+include("Dbconn.php");
+//require_once('/path/to/pingpp-php/init.php');
+if (!isset($_SESSION["uid"])) {
+	header("Location:login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,11 +22,18 @@ require_once('/path/to/pingpp-php/init.php');
 	<link rel="stylesheet" type="text/css" href="css/money.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		function changePoint(){
+			var money =$("#money").val();
+			$("#totalMoney").html(money);
+			console.log(money);
+		}
+	</script>
 </head>
 <body style="background: #ededed;">
 <div id="wrap">
 	<form action="" method="post">
-		<div class="zc_pay_1">充值积分<input type="text" name="money"></div>
+		<div class="zc_pay_1">充值积分<input type="text" name="money" id="money" oninput="changePoint()"></div>
 		<div class="zc_pay_4 clearfix">
 			<h3>微信支付</h3>
 			<div class="pay_son">
@@ -30,17 +41,17 @@ require_once('/path/to/pingpp-php/init.php');
 			  <label name="nba" class="checked" for="nba"></label>
 			</div>
 		</div>
-		<div class="zc_pay_4 clearfix">
-			<h3 class="h3_2">银联卡支付</h3>
-			<div class="pay_son">
-			  <input type="radio" id="nbc" checked="checked" name="pay" value="weixin">
-			  <label name="nbc" for="nbc"></label>
-			</div>
-		</div>
+<!--		<div class="zc_pay_4 clearfix">-->
+<!--			<h3 class="h3_2">银联卡支付</h3>-->
+<!--			<div class="pay_son">-->
+<!--			  <input type="radio" id="nbc" checked="checked" name="pay" value="weixin">-->
+<!--			  <label name="nbc" for="nbc"></label>-->
+<!--			</div>-->
+<!--		</div>-->
 
 		<div style="height:62px;"></div>
 		<div class="zc_pay_dw clearfix">
-			<h3 class="fl">合计:<font>0.00</font>元</h3>
+			<h3 class="fl">合计:<span style="margin-left: 20px;margin-right: 10px;" id="totalMoney">0.00</span>元</h3>
 			<div class="pay_submit fr"><input type="submit" value="确定支付"></div>
 		</div>
 	</form>
