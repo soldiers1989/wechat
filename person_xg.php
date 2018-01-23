@@ -12,10 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	while($rs=$query->fetch_assoc()){
 		$uid=$rs['user_id'];
 	}
-	echo "uid:".$uid;
+	//echo "uid:".$uid;
 	if(0<$uid){
 		$sql = "update user set user_pass = '$passwordnew' WHERE user_name = '$uname'";
 		$query = $conn ->query($sql);
+		header("Location:person.php");
 	}else{
 		echo "<script>alert('密码输入错误！')</script>";
 		header("Location:person_xg.php");
@@ -61,15 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<form action="" method="post" onSubmit="return checkForm(this);">
 			<div class="input clearfix">
 				<span class="fl"><font color="red">*</font>原密码</span>
-				<input type="text" name="passwordLast" class="fl">
+				<input type="password" name="passwordLast" class="fl">
 			</div>
 			<div class="input clearfix">
 				<span class="fl"><font color="red">*</font>新密码</span>
-				<input type="text" name="passwordnew1" class="fl">
+				<input type="password" name="passwordnew1" class="fl">
 			</div>
 			<div class="input clearfix">
 				<span class="fl"><font color="red">*</font>确认密码</span>
-				<input type="text" name="passwordnew2" class="fl">
+				<input type="password" name="passwordnew2" class="fl">
 			</div>
 			<div class="submit"><input type="submit" value="保存"></div>
 		</form>

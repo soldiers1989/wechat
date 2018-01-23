@@ -5,6 +5,9 @@ if (!isset($_SESSION["uid"])) {
 }
 $uemail = $_SESSION['uemail'];
 $uname = $_SESSION['user_name'];
+$fabuon='';
+$personon="on";
+$indexon="";
 $money =0;
 $payNum = 0;
 $sql="select * from user WHERE email='$uemail'";
@@ -14,7 +17,7 @@ while($rs=$query->fetch_assoc()){
 }
 $sql="select * from tradingrecord WHERE user_name='$uname'";
 $query=$conn->query($sql);
-$payNum = $query->num_rows();
+$payNum=mysqli_num_rows($query);
 
 ?>
 <!DOCTYPE html>

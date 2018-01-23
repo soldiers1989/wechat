@@ -11,7 +11,6 @@ while ($rs = $query->fetch_assoc()) {
     $wechat = $rs['wechat'];
     $qq = $rs['qq'];
 }
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $wechat = $_POST['weixin'];
     $qq = $_POST['qq'];
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="input clearfix">
                 <span class="fl"><font color="red">*</font>QQ号</span>
-                <input type="text" name="qq" class="fl" <?php echo $qq ?>>
+                <input type="text" name="qq" class="fl" value="<?php echo $qq ?>">
             </div>
             <div class="submit"><input type="submit" value="保存"></div>
         </form>

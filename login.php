@@ -5,7 +5,7 @@ $emalPost=0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$name=$_POST['username'];
 	$password =md5($_POST['password']);
-	$sql = "select * from user where email='$name' AND user_pass=$password";
+	$sql = "select * from user where email='$name' AND user_pass='$password'";
 	$query=$conn->query($sql);
 	$id=0;
 	$emalPost=$name;

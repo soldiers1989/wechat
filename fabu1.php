@@ -1,5 +1,7 @@
 <?php
-
+$fabuon='on';
+$personon="";
+$indexon="";
 ?>
 <!DOCTYPE html>
 <html>

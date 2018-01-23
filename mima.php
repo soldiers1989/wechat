@@ -28,8 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "<script>alert('密码不足6位！')</script>";
     }
-
+}else{
+    $sql="select * from user where user_name='$uname'";
+    $query=$conn->query($sql);
+    $id=0;
+    while($rs=$query->fetch_assoc()){
+        $pay_pass=$rs['pay_pass'];
+    }
+    if(!empty($pay_pass)){
+        echo "<script>alert('已设置支付密码！')</script>";
+        echo "<script> window.location.href = 'person.php' ;</script>";
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
