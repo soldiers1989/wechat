@@ -1,6 +1,6 @@
 <?php
 //文件名 pingxx_my_model.php
-include_once(__DIR__.'/pingpp-php-master/init.php'); //引入官方PHP SDK
+include_once('init.php'); //引入官方PHP SDK
 
 define('APP_ID', "app_1afr1SiDOSuD0yHe");   //配置应用id
 define('APP_KEY', "WechatDueapeZgtx1234987654321012");  //配置应用秘钥
@@ -16,14 +16,14 @@ class Pingxx_my_model
     //创建charge对象
     public function create_charge($channel, $amount, $order_no, $extra=array(), $description='', $subject ='', $body=''){
         /*----检查参数格式----*/
-        if (!in_array($channel, $this->channel_supported)){
-            return array(
-                'code' => 0,
-                'data' => array(
-                    'error_message' => 'channel "'.$channel.'" has not been supported yet'
-                )
-            );
-        }
+//        if (!in_array($channel, $this->channel_supported)){
+//            return array(
+//                'code' => 0,
+//                'data' => array(
+//                    'error_message' => 'channel "'.$channel.'" has not been supported yet'
+//                )
+//            );
+//        }
         if ( $amount<=0 ){
             return array(
                 'code' => 0,
