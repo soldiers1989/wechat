@@ -50,9 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<div class="input input1"><input type="password" name="password" placeholder="输入密码"></div>
 			<div class="wangji"><a href="">忘记密码？</a></div>
 			<div class="submit"><input type="submit" value="登录"></div>
-			<div class="submit"><input type="submit" value="免费注册"></div>
+			<div class="submit"><input type="button" onclick="registerClick()" value="免费注册"></div>
 		</form>
 	</div>
 </div>
+<script>
+	function registerClick(){
+		window.location.href="register.php";
+	}
+</script>
 </body>
 </html>

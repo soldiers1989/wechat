@@ -1,30 +1,66 @@
 <?php
-require_once 'Dbconn.php';
-require_once 'QQMailer.php';
-$code=null;
-$email=null;
-$password=null;
-if ($_SERVER['REQUEST_METHOD'] == 'GET'&&isset($_GET['act'])&&$_GET['act']=='regist') {
-    $email = $_GET['el'];
-    $password=$_GET['pd'];
+include_once 'Dbconn.php';
+include_once 'QQmailer.php';
+$code = null;
+$email = null;
+$password = null;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sendCode'])) {
+   // echo "<script>alert(" . $_POST['sendCode'] . ")</script>";
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
     $code = rand(10000, 99999);
     $timeNow = time();
-    $sql = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
-    $conn->query($sql);
-
-// 实例化 QQMailer
-    $mailer = new QQMailer(true);
-// 添加附件
-//$mailer->addFile('20130VL.jpg');
-// 邮件标题
+    $sqlCode = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
+    $conn->query($sqlCode);
+    $mailer = new QQMailer();
     $title = 'dueape验证码';
-// 邮件内容
-    $content = "您此次请求的验证码为 ".$code." 请于5分钟内输入该验证码，否则该验证码将会失效！" ;
-// 发送QQ邮件
-    $mailer->send($email, $title, $content);
+    $content = "您此次请求的验证码为 " . $code . " 请于5分钟内输入该验证码，否则该验证码将会失效！";
+    if ($mailer->send($email, $title, $content)) {
+        echo "<script>alert('已发送验证码至邮箱！')</script>";
+    } else {
+        echo "<script>alert('邮件发送失败！')</script>";
+        echo "<script> window.location.href = 'register.php' ;</script>";
+    }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $emalPost=$_POST['email'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    $sql = "select * from user where email='$email'";
+    $result = $conn->query($sql);
+    $arrid = 0;
+    while ($rs = $result->fetch_assoc()) {
+        $arrid = $rs["user_id"];
+    }
+    if ($arrid > 0) {
+        echo "<script>alert('邮箱已注册!')</script>";
+        echo "<script> window.location.href = 'register.php' ;</script>";
+    } else {
+        // echo "<script>alert('发送邮件！')</script>";
+        $code = rand(10000, 99999);
+        // echo "<script>alert(".$code.")</script>";
+        $timeNow = time();
+//        echo "<script>alert(".$timeNow.")</script>";
+//        echo "<script>alert(".$email.")</script>";
+        $sqlCode = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
+        $conn->query($sqlCode);
+
+        $mailer = new QQMailer();
+        $title = 'dueape验证码';
+        $content = "您此次请求的验证码为 " . $code . " 请于5分钟内输入该验证码，否则该验证码将会失效！";
+        if ($mailer->send($email, $title, $content)) {
+            //  echo "<script>alert('邮件已发送！')</script>";
+//            echo "<script> window.location.href = " . 'code\.php?el=' . ".$email." . ' ;</script>';
+        } else {
+            echo "<script>alert('邮件发送失败！')</script>";
+            echo "<script> window.location.href = 'register.php' ;</script>";
+        }
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['code'])) {
+    $emalPost = $_POST['email'];
     $codePost = $_POST['code'];
     $passwordPost = $_POST['password'];
     $sql = "select code from verification_code where email='$emalPost' ORDER BY id desc limit 1";
@@ -33,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     while ($result = $query->fetch_assoc()) {
         $getcode = $result["code"];
     }
-    if($getcode==$codePost){
+    if ($getcode == $codePost) {
         $sqlMaxId = "select * from user order by user_id desc limit 1";
         $resultMaxId = $conn->query($sqlMaxId);
         $userid = 0;
@@ -43,14 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userid += 1;
         $sql = "insert into user (user_id,email,user_pass,user_name) VALUES ('$userid','$emalPost','$passwordPost','$emalPost')";
         $result = $conn->query($sql);
-        $_SESSION['uid']=$userid;
-        $_SESSION['uemail']=$emalPost;
-        $_SESSION['user_name']=$emalPost;
+        $_SESSION['uid'] = $userid;
+        $_SESSION['uemail'] = $emalPost;
+        $_SESSION['user_name'] = $emalPost;
         header("Location: fabu1.php");
-    }else{
+    } else {
         echo "<script>alert('验证码不正确!')</script>";
         echo "<script> window.location.href = 'register.php' ;</script>";
     }
+}
+
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    echo "<script> window.location.href = 'register.php' ;</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -71,22 +111,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/leftTime.min.js"></script>
 
-
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             //60秒倒计时
-            $("#dateBtn1").on("click",function(){
-                console.log('in click');
-                var _this=$(this);
-                if(!$(this).hasClass("oncode")){
-                    $.leftTime(60,function(d){
-                        if(d.status){
+            $("#dateBtn1").on("click", function () {
+                var _this = $(this);
+                if (!$(this).hasClass("oncode")) {
+                    $.leftTime(60, function (d) {
+                        if (d.status) {
                             _this.addClass("oncode");
-                            _this.html((d.s=="00"?"60":d.s)+"秒后重新获取");
-                        }else{
+                            _this.html((d.s == "00" ? "60" : d.s) + "秒后重新获取");
+                        } else {
                             _this.removeClass("oncode");
                             _this.html("获取验证码");
                         }
+                    });
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "code.php",
+                        data: {"email":$("#email").val(), "password":$("#password").val(),"sendCode":'sendCode'},
+                        success: function(req) {},
+                        dataType: "json"
                     });
                 }
             });
@@ -99,12 +145,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="post">
             <div class="input code"><input type="text" name="username" placeholder="请输入验证码                   ">
 
-                <div class="time" id="dateBtn1" >获取验证码</div>
+                <div class="time" id="dateBtn1">获取验证码</div>
             </div>
             <h3>你的邮箱有一封带验证码的邮件，请输入验证码</h3>
             <input type="hidden" name="code" value="<?php echo $code ?>">
-            <input type="hidden" name="email" value="<?php echo $email ?>">
-            <input type="hidden" name="password" value="<?php echo $password ?>">
+            <input type="hidden" name="email" id="email" value="<?php echo $email ?>">
+            <input type="hidden" name="password" id="password" value="<?php echo $password ?>">
+            <input type="hidden" name="code" value="code">
+
             <div class="submit"><input type="submit" value="确认"></div>
         </form>
     </div>

@@ -1,21 +1,40 @@
 <?php
-include("Dbconn.php");
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    $sql = "select * from user where email='$email'";
-    $result = $conn->query($sql);
-    $arrid=0;
-    while ($rs = $result->fetch_assoc()) {
-        $arrid = $rs["user_id"];
-    }
-    if($arrid>0){
-        echo "<script>alert('邮箱已注册!')</script>";
-        echo "<script> window.location.href = 'register.php' ;</script>";
-    }else{
-        header("Location: code.php?el=".$email."&pd=".$password."&act=regist");
-    }
-}
+//include "Dbconn.php";
+//include "QQmailer.php";
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    $email = $_POST['email'];
+//    $password = md5($_POST['password']);
+//    $sql = "select * from user where email='$email'";
+//    $result = $conn->query($sql);
+//    $arrid = 0;
+//    while ($rs = $result->fetch_assoc()) {
+//        $arrid = $rs["user_id"];
+//    }
+//    echo "<script>alert(".$arrid.")</script>";
+//    if ($arrid > 0) {
+//        echo "<script>alert('邮箱已注册!')</script>";
+//        echo "<script> window.location.href = 'register.php' ;</script>";
+//    } else {
+//       // echo "<script>alert('发送邮件！')</script>";
+//        $code = rand(10000, 99999);
+//       // echo "<script>alert(".$code.")</script>";
+//        $timeNow = time();
+////        echo "<script>alert(".$timeNow.")</script>";
+////        echo "<script>alert(".$email.")</script>";
+//        $sqlCode = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
+//        $conn->query($sqlCode);
+//
+//        $mailer = new QQMailer();
+//        $title = 'dueape验证码';
+//        $content = "您此次请求的验证码为 " . $code . " 请于5分钟内输入该验证码，否则该验证码将会失效！";
+//        if ($mailer->send($email, $title, $content)) {
+//          //  echo "<script>alert('邮件已发送！')</script>";
+//            echo "<script> window.location.href = ".'code\.php?el='.".$email.".' ;</script>';
+//        } else {
+//            echo "<script>alert('邮件发送失败！')</script>";
+//        }
+//    }
+//}
 
 ?>
 
@@ -37,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script type="text/javascript" src="js/index.js"></script>
     <script language="javascript">
         function checkForm(form) {
+//            alert("in checkform！");
             if (form.email.value == "" || form.email.value == "请输入邮箱") {
                 alert("请输入邮箱！");
                 form.email.focus();
@@ -50,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     return false;
                 }
             }
-
             if (form.password.value == "" || form.password.value == "请设置密码") {
                 alert("密码不能为空！");
                 form.password.focus();
@@ -64,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     return false;
                 }
             }
-
             if (form.password.value != form.confpass.value) {
                 alert("两次密码不一致！");
                 form.confpass.focus();
@@ -77,10 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 <div id="wrap">
     <div class="reg">
-        <form action="" method="post" onSubmit="return checkForm(this);">
+        <form action="code.php" method="post" onSubmit="return checkForm(this)">
             <div class="input"><input type="text" name="email" placeholder="请输入邮箱"></div>
             <div class="input input1"><input type="password" name="password" placeholder="请设置密码"></div>
             <div class="input input1"><input type="password" name="confpass" placeholder="请确认密码"></div>
+            <input type="hidden" name="register" value="register">
             <div class="submit"><input type="submit" value="下一步"></div>
 
         </form>
