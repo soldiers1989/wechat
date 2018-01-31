@@ -1,41 +1,4 @@
 <?php
-//include "Dbconn.php";
-//include "QQmailer.php";
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//    $email = $_POST['email'];
-//    $password = md5($_POST['password']);
-//    $sql = "select * from user where email='$email'";
-//    $result = $conn->query($sql);
-//    $arrid = 0;
-//    while ($rs = $result->fetch_assoc()) {
-//        $arrid = $rs["user_id"];
-//    }
-//    echo "<script>alert(".$arrid.")</script>";
-//    if ($arrid > 0) {
-//        echo "<script>alert('邮箱已注册!')</script>";
-//        echo "<script> window.location.href = 'register.php' ;</script>";
-//    } else {
-//       // echo "<script>alert('发送邮件！')</script>";
-//        $code = rand(10000, 99999);
-//       // echo "<script>alert(".$code.")</script>";
-//        $timeNow = time();
-////        echo "<script>alert(".$timeNow.")</script>";
-////        echo "<script>alert(".$email.")</script>";
-//        $sqlCode = "insert into verification_code (email,creattime,code) VALUES ('$email','$timeNow','$code')";
-//        $conn->query($sqlCode);
-//
-//        $mailer = new QQMailer();
-//        $title = 'dueape验证码';
-//        $content = "您此次请求的验证码为 " . $code . " 请于5分钟内输入该验证码，否则该验证码将会失效！";
-//        if ($mailer->send($email, $title, $content)) {
-//          //  echo "<script>alert('邮件已发送！')</script>";
-//            echo "<script> window.location.href = ".'code\.php?el='.".$email.".' ;</script>';
-//        } else {
-//            echo "<script>alert('邮件发送失败！')</script>";
-//        }
-//    }
-//}
-
 ?>
 
 <!DOCTYPE html>
